@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Part information</title>
+    <div th:include="header.html"/>
+</head>
+<body>
+<div class="panel panel-default">
+    <form th:action="@{/export}" th:object="${DifferencesDto}" method="post">
+        <table class="table">
+            <tbody>
+            <tr th:each="attr,stat: ${DifferencesDto.esList} " style="display:none">
+                <td><input th:field="*{esList[__${stat.index}__].key}" class="form-control"></td>
+                <td><input th:field="*{esList[__${stat.index}__].value}" class="form-control"></td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Entries only on the EN file</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Label</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="attr, stat: *{onlyEnList}">
+                <td><input th:field="*{onlyEnList[__${stat.index}__].key}" class="form-control" readonly></td>
+                <td><input th:field="*{onlyEnList[__${stat.index}__].value}" class="form-control"></td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Entries not translated</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Label</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="attr, stat: *{notTranslatedList}">
+                <td><input th:field="*{notTranslatedList[__${stat.index}__].key}" class="form-control" readonly></td>
+                <td><input th:field="*{notTranslatedList[__${stat.index}__].value}" class="form-control"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary" name="action" value="exportToFile">EXPORT AS FILE</button>
+        <button type="submit" class="btn btn-primary" name="action" value="exportAsText">EXPORT AS TEXT</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

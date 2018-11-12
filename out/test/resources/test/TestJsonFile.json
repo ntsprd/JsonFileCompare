@@ -1,0 +1,7 @@
+{
+  "orientation_type_vertical": "vertical",
+  "orientation_type_horizontal": "horizontal",
+  "semi_responsive_properties_label": "Layout",
+  "semi_responsive_layout_panel_select_layout_first": "You have to select a semi responsive layout.",
+  "semi_responsive_layout_panel_select_css_style_first": "You have to select a CSS style."
+}
