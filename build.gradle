@@ -18,7 +18,8 @@ apply plugin: 'idea'
 
 apply plugin: 'org.springframework.boot'
 
-group = 'sprada.banana'
+group = 'sprada.solwit'
+archivesBaseName = 'sprada.solwit'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
